@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class CallOfDutyGame {
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Call of Duty: Text Edition!");
+        System.out.println("---------------------------------------");
+        
+        System.out.println("Choose your soldier's name:");
+        String playerName = scanner.nextLine();
+
+        System.out.println("Welcome, " + playerName + "! Let's start the mission.");
+
+        // Game loop
+        boolean isGameOver = false;
+        int enemyCount = 0;
+
+        while (!isGameOver) {
+            System.out.println("---------------------------------------");
+            System.out.println("Current mission: Eliminate enemies");
+
+            System.out.println("Choose an action:");
+            System.out.println("1. Attack enemy");
+            System.out.println("2. Retreat");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("You engage the enemy!");
+                    enemyCount++;
+                    break;
+                case 2:
+                    System.out.println("You retreat from the battlefield.");
+                    isGameOver = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+                    break;
+            }
+
+            if (enemyCount >= 5) {
+                System.out.println("Mission accomplished! You defeated " + enemyCount + " enemies.");
+                System.out.println("Congratulations, " + playerName + "!");
+                isGameOver = true;
+            }
+        }
+
+        System.out.println("Thank you for playing Call of Duty: Text Edition!");
+    }
+}
